@@ -1,0 +1,238 @@
+{
+    "library": {
+        "books": [
+            {
+                "name": "Hyperion",
+                "cost": {
+                    "amount": 278,
+                    "currency": "CZK"
+                },
+                "author": [
+                    {
+                        "name": "Dan",
+                        "surname": "Simmons",
+                        "country": "USA"
+                    }
+                ],
+                "year": 2017,
+                "leather": false,
+                "keywords": [
+                    "space",
+                    "time travel",
+                    "sci-fi"
+                ],
+                "ISBN": "978-80-257-2327-2"
+            },
+            {
+                "name": "Pád Hyperionu",
+                "cost": {
+                    "amount": 321,
+                    "currency": "CZK"
+                },
+                "author": [
+                    {
+                        "name": "Dan",
+                        "surname": "Simmons",
+                        "country": "USA"
+                    }
+                ],
+                "year": 2018,
+                "leather": false,
+                "keywords": [
+                    "space",
+                    "time travel",
+                    "sci-fi"
+                ],
+                "ISBN": "978-80-257-2644-0"
+            },
+            {
+                "name": "Harry Potter and the Philosopher's Stone",
+                "cost": {
+                    "amount": 20,
+                    "currency": "EUR"
+                },
+                "author": [
+                    {
+                        "name": "Joanne",
+                        "surname": "Rowling",
+                        "country": "UK"
+                    }
+                ],
+                "year": 1997,
+                "leather": false,
+                "keywords": [
+                    "magic",
+                    "school",
+                    "fantasy"
+                ]
+            },
+            {
+                "name": "Grimm's Complete Fairy Tales",
+                "cost": {
+                    "amount": 418,
+                    "currency": "CZK"
+                },
+                "author": [
+                    {
+                        "name": "Jacob",
+                        "surname": "Grimm",
+                        "country": "GER"
+                    }
+                ],
+                "year": 2011,
+                "leather": true,
+                "keywords": [
+                    "fairy tales",
+                    "classics"
+                ]
+            },
+            {
+                "name": "The Godfather",
+                "cost": {
+                    "amount": 15,
+                    "currency": "USD"
+                },
+                "author": [
+                    {
+                        "name": "Mario",
+                        "surname": "Puzo",
+                        "country": "USA"
+                    }
+                ],
+                "year": 1969,
+                "leather": false,
+                "keywords": [
+                    "mafia",
+                    "crime",
+                    "classics"
+                ]
+            },
+            {
+                "name": "Tufova dobrodružství",
+                "cost": {
+                    "amount": 349,
+                    "currency": "CZK"
+                },
+                "author": [
+                    {
+                        "name": "George R. R.",
+                        "surname": "Martin",
+                        "country": "2014"
+                    }
+                ],
+                "year": 2014,
+                "leather": false,
+                "keywords": [
+                    "space",
+                    "sci-fi",
+                    "comedy"
+                ],
+                "ISBN": "978-80-259-0324-7"
+            }
+        ],
+        "magazines": [
+            {
+                "name": "Ekonom",
+                "issue": {
+                    "number": 1,
+                    "year": 2022
+                },
+                "frequency": "weekly",
+                "publisher": {
+                    "name": "Economia",
+                    "country": "CZ"
+                },
+                "keywords": [
+                    "business",
+                    "economics",
+                    "management"
+                ]
+            },
+            {
+                "name": "Ekonom",
+                "issue": {
+                    "number": 3,
+                    "year": 2007
+                },
+                "frequency": "weekly",
+                "publisher": {
+                    "name": "Economia",
+                    "country": "CZ"
+                },
+                "keywords": [
+                    "business",
+                    "economics",
+                    "management"
+                ]
+            },
+            {
+                "name": "Respekt",
+                "issue": {
+                    "number": 5,
+                    "year": 2021
+                },
+                "frequency": "weekly",
+                "publisher": {
+                    "name": "Economia",
+                    "country": "CZ"
+                },
+                "keywords": [
+                    "politics",
+                    "business",
+                    "foreign affairs"
+                ]
+            },
+            {
+                "name": "Forbes",
+                "issue": {
+                    "number": 2,
+                    "year": 2021
+                },
+                "frequency": "Twice quarterly",
+                "publisher": {
+                    "name": "Integrated Whale Media",
+                    "country": "USA"
+                },
+                "keywords": [
+                    "business",
+                    "economics",
+                    "management"
+                ]
+            },
+            {
+                "name": "Méďa Pusík",
+                "issue": {
+                    "number": 10,
+                    "year": 1997
+                },
+                "frequency": "monthly",
+                "publisher": {
+                    "name": "Pražská vydavatelská společnost",
+                    "country": "CZ"
+                },
+                "keywords": [
+                    "children",
+                    "games",
+                    "riddles"
+                ]
+            },
+            {
+                "name": "Méďa Pusík",
+                "issue": {
+                    "number": 8,
+                    "year": 2021
+                },
+                "frequency": "monthly",
+                "publisher": {
+                    "name": "Pražská vydavatelská společnost",
+                    "country": "CZ"
+                },
+                "keywords": [
+                    "children",
+                    "games",
+                    "riddles"
+                ]
+            }
+        ]
+    }
+}

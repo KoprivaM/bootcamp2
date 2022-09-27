@@ -1,0 +1,291 @@
+1. Všechny knihy, které jste nekoupili za CZK
+ 
+$.library.books[?(@.cost.currency != "CZK")]
+
+[
+  {
+    "name": "Harry Potter and the Philosopher's Stone",
+    "cost": {
+      "amount": 20,
+      "currency": "EUR"
+    },
+    "author": [
+      {
+        "name": "Joanne",
+        "surname": "Rowling",
+        "country": "UK"
+      }
+    ],
+    "year": 1997,
+    "leather": false,
+    "keywords": [
+      "magic",
+      "school",
+      "fantasy"
+    ]
+  },
+  {
+    "name": "The Godfather",
+    "cost": {
+      "amount": 15,
+      "currency": "USD"
+    },
+    "author": [
+      {
+        "name": "Mario",
+        "surname": "Puzo",
+        "country": "USA"
+      }
+    ],
+    "year": 1969,
+    "leather": false,
+    "keywords": [
+      "mafia",
+      "crime",
+      "classics"
+    ]
+  }
+]
+====================================================================
+2. Mladší knihy než rok 2000
+
+$.library.books[?(@.year > 2000)]
+
+[
+  {
+    "name": "Hyperion",
+    "cost": {
+      "amount": 278,
+      "currency": "CZK"
+    },
+    "author": [
+      {
+        "name": "Dan",
+        "surname": "Simmons",
+        "country": "USA"
+      }
+    ],
+    "year": 2017,
+    "leather": false,
+    "keywords": [
+      "space",
+      "time travel",
+      "sci-fi"
+    ],
+    "ISBN": "978-80-257-2327-2"
+  },
+  {
+    "name": "Pád Hyperionu",
+    "cost": {
+      "amount": 321,
+      "currency": "CZK"
+    },
+    "author": [
+      {
+        "name": "Dan",
+        "surname": "Simmons",
+        "country": "USA"
+      }
+    ],
+    "year": 2018,
+    "leather": false,
+    "keywords": [
+      "space",
+      "time travel",
+      "sci-fi"
+    ],
+    "ISBN": "978-80-257-2644-0"
+  },
+  {
+    "name": "Grimm's Complete Fairy Tales",
+    "cost": {
+      "amount": 418,
+      "currency": "CZK"
+    },
+    "author": [
+      {
+        "name": "Jacob",
+        "surname": "Grimm",
+        "country": "GER"
+      }
+    ],
+    "year": 2011,
+    "leather": true,
+    "keywords": [
+      "fairy tales",
+      "classics"
+    ]
+  },
+  {
+    "name": "Tufova dobrodružství",
+    "cost": {
+      "amount": 349,
+      "currency": "CZK"
+    },
+    "author": [
+      {
+        "name": "George R. R.",
+        "surname": "Martin",
+        "country": "2014"
+      }
+    ],
+    "year": 2014,
+    "leather": false,
+    "keywords": [
+      "space",
+      "sci-fi",
+      "comedy"
+    ],
+    "ISBN": "978-80-259-0324-7"
+  }
+]
+
+====================================================================
+3. Všechny knihy, které NEmají uvedené ISBN a současně jsou vázané v kůži
+
+$.library.books[?(!@.ISBN && @.leather == true)]
+
+[
+  {
+    "name": "Grimm's Complete Fairy Tales",
+    "cost": {
+      "amount": 418,
+      "currency": "CZK"
+    },
+    "author": [
+      {
+        "name": "Jacob",
+        "surname": "Grimm",
+        "country": "GER"
+      }
+    ],
+    "year": 2011,
+    "leather": true,
+    "keywords": [
+      "fairy tales",
+      "classics"
+    ]
+  }
+]
+
+====================================================================
+4. Pole přijmení všech autorů
+
+$..surname
+
+[
+  "Simmons",
+  "Simmons",
+  "Rowling",
+  "Grimm",
+  "Puzo",
+  "Martin"
+]
+====================================================================
+5. Jména knih, která v klíčových slovech mají např. "román" (zvolte sami)
+
+$.library.books[?(@.keywords contains 'space')].name
+
+---nefunguje na https://jsonpath.com/
+---funguje na https://jsonpath.herokuapp.com/
+
+[
+   "Hyperion",
+   "Pád Hyperionu",
+   "Tufova dobrodružství"
+]
+
+====================================================================
+6. Časopisy, které nevyšly v Česku
+
+$.library.magazines[?(@.publisher.country != 'CZ')]
+
+[
+  {
+    "name": "Forbes",
+    "issue": {
+      "number": 2,
+      "year": 2021
+    },
+    "frequency": "Twice quarterly",
+    "publisher": {
+      "name": "Integrated Whale Media",
+      "country": "USA"
+    },
+    "keywords": [
+      "business",
+      "economics",
+      "management"
+    ]
+  }
+]
+
+====================================================================
+7. Jména časopisů vydaných po roce 2020 s klíčovým slovem 'business'
+
+$.library.magazines[?(@.keywords contains 'business' && @.issue.year > 2020)].name
+
+[
+   "Ekonom",
+   "Respekt",
+   "Forbes"
+]
+
+====================================================================
+8. České týdeníky
+
+$.library.magazines[?(@.frequency == 'weekly' && @.publisher.country == 'CZ')]
+
+[
+   {
+      "name" : "Ekonom",
+      "issue" : {
+         "number" : 1,
+         "year" : 2022
+      },
+      "frequency" : "weekly",
+      "publisher" : {
+         "name" : "Economia",
+         "country" : "CZ"
+      },
+      "keywords" : [
+         "business",
+         "economics",
+         "management"
+      ]
+   },
+   {
+      "name" : "Ekonom",
+      "issue" : {
+         "number" : 3,
+         "year" : 2007
+      },
+      "frequency" : "weekly",
+      "publisher" : {
+         "name" : "Economia",
+         "country" : "CZ"
+      },
+      "keywords" : [
+         "business",
+         "economics",
+         "management"
+      ]
+   },
+   {
+      "name" : "Respekt",
+      "issue" : {
+         "number" : 5,
+         "year" : 2021
+      },
+      "frequency" : "weekly",
+      "publisher" : {
+         "name" : "Economia",
+         "country" : "CZ"
+      },
+      "keywords" : [
+         "politics",
+         "business",
+         "foreign affairs"
+      ]
+   }
+]
