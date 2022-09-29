@@ -1,0 +1,106 @@
+<definitions name="Library"
+   targetNamespace="urn:mojeURI" 
+   xmlns:tns="urn:mojeURI" 
+   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:ns1="urn:mojeURI" 
+   xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" 
+   xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" 
+   xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+   <documentation>
+    Service: Library Service
+    Version: 1.0
+    Owner: Michal Kopriva
+    </documentation>
+
+    <types> 
+        <schema targetNamespace="urn:mojeURI"     
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema"     
+            elementFormDefault="unqualified"     
+            attributeFormDefault="unqualified">  
+                <element name="title" type="xsd:string"/>  
+                <element name="date" type="xsd:date"/>
+                <element name="author" type="xsd:string"/>  
+        </schema>
+    </types>
+
+    <message name="getBookRequest"> 
+        <part name="title" element="ns1:title"/>
+    </message>
+    <message name="getBookResponse">
+        <part name="title" element="ns1:title"/>
+        <part name="date" element="ns1:date"/>
+        <part name="author" element="ns1:author"/>
+    </message>
+    <message name="addBookRequest"> 
+        <part name="title" element="ns1:title"/>
+        <part name="date" element="ns1:date"/>
+        <part name="author" element="ns1:author"/>
+    </message>
+    <message name="getAllBooksResponse"> 
+        <part name="title" element="ns1:title"/>
+        <part name="date" element="ns1:date"/>
+        <part name="author" element="ns1:author"/>
+    </message>
+
+    <portType name="Books">
+        <documentation>Operations with books.</documentation>
+        <operation name="GetBook">
+            <documentation>Get info about one book.</documentation>  
+            <input message="tns:getBookRequest"/>  
+            <output message="tns:getBookResponse"/> 
+        </operation>
+
+        <operation name="AddBook">
+            <documentation>Add one book to library.</documentation>  
+            <input message="tns:addBookRequest"/>  
+        </operation>
+
+        <operation name="GetAllBooks">
+            <documentation>Returns info about all books.</documentation>   
+            <output message="tns:getAllBooksResponse"/> 
+        </operation>
+    </portType>
+
+    <binding name="LibraryService" type="tns:Books">
+        <SOAP:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetBook">
+            <SOAP:operation style="rpc" soapAction="GetBook"/>
+            <input>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </input>
+            <output>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </output>
+        </operation>
+        <operation name="AddBook">
+            <SOAP:operation style="rpc" soapAction="AddBook"/>
+            <input>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </input>
+            <output>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </output>
+        </operation>
+        <operation name="GetAllBooks">
+            <SOAP:operation style="rpc" soapAction="GetAllBooks"/>
+            <input>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </input>
+            <output>
+                <SOAP:body use="literal" namespace="urn:mojeURI"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="LibraryService">
+        <documentation>Library service providing book information.</documentation>
+        <port name="LibraryService" binding="tns:LibraryService">
+            <SOAP:address location="http://localhost:10000"/>
+        </port>
+    </service>
+</definitions>
